@@ -14,7 +14,7 @@ export const CharacterDetails = () => {
 console.log(store.characterDetails);
     return(
         <div>
-            
+            <p>En obras</p>
             <h1>{store.characterDetails?.properties?.name}</h1>
             
         </div>
