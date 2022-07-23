@@ -6,14 +6,11 @@ import { Link, useParams } from "react-router-dom";
 export const Navbar = () => {
 		const {store, actions} = useContext(Context);
 	return (
-		<nav className="navbar navbar-light bg-light mb-3">
+		<nav className="navbar navbar-light bg-dark mb-3">
 			<Link to="/">
-				<span className="navbar-brand mb-0 h1">React Boilerplate</span>
+				<span className="navbar-brand mb-0 h1 ms-5 text-white">Home</span>
 			</Link>
 			<div className="ml-auto">
-				<Link to="/demo">
-					<button className="btn btn-primary">Check the Context in action</button>
-				</Link>
 				<div className="btn-group">
   			<button type="button" className="btn btn-success dropdown-toggle m-5" data-bs-toggle="dropdown" aria-expanded="false">
     		Favorites <span className="badge bg-secondary">{store.favorites.length}</span>

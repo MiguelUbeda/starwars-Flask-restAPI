@@ -11,6 +11,7 @@ import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 
 import {CharacterDetails} from "./views/character_details";
+import {PlanetsDetails} from "./views/planets_details";
 
  
 
@@ -31,6 +32,9 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/character_details/:id">
 							<CharacterDetails />
+						</Route>
+						<Route exact path="/planets_details/:id">
+							<PlanetsDetails />
 						</Route>
 						<Route exact path="/single/:theid">
 							<Single />

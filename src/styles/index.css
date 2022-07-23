@@ -5,3 +5,12 @@ img {
     height: 100px;
     width: 100px;
 }
+body{
+    background-color:black;
+}
+
+#logo {
+    height: 200px;
+    width: 300px;
+}
+

@@ -3,22 +3,22 @@ import { Context } from "../store/appContext";
 import { Link, useParams } from "react-router-dom";
 
 
-export const CharacterCard = () => {
+export const PlanetCard = () => {
     const {store, actions} = useContext(Context);
     return (
         <>
-        {store.characters.map((character, i)=>{
+        {store.planets.map((planet, i)=>{
             return(
-                <div className="card m-2 border-warning" style={{width: "18 rem"}} key={character.uid}>
-                <img src={"https://starwars-visualguide.com/assets/img/characters/" + character.uid + ".jpg"} className="card-img-top" alt="Character"/>
+                <div className="card m-2 border-warning" style={{width: "18 rem"}} key={planet.uid}>
+                <img src={"https://starwars-visualguide.com/assets/img/planets/" + planet.uid + ".jpg"} className="card-img-top" alt="Planet"/>
                 <div className="card-body text-white bg-black">
-                  <h5 className="card-title">{character.name}</h5>
-                  <Link to={`/character_details/${character.uid}`}>
+                  <h5 className="card-title">{planet.name}</h5>
+                  <Link to={`/planets_details/${planet.uid}`}>
 						<button href="#" className="btn btn-light">
 							Details
 						</button>
 				   </Link>
-                   <button href="#" className="btn btn-danger m-2" onClick={() => actions.addFavorites(character.name)}> 
+                   <button href="#" className="btn btn-danger m-2" onClick={() => actions.addFavorites(planet.name)}> 
                    <i className="fa-solid fa fa-heart"></i>
                     </button>
                 </div>

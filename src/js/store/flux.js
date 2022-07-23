@@ -2,7 +2,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
 			characters: [],
+			planets: [],
 			characterDetails: null,
+			planetDetails: null,
 			favorites: [],
 		},
 		actions: {			
@@ -18,10 +20,25 @@ const getState = ({ getStore, getActions, setStore }) => {
 						.then(response => response.json())
 						.then( data => setStore({characterDetails: data.result}))
 						.catch(error => console.log(error))
+			},	    
+			loadPlanets: () => {
+				fetch("https://www.swapi.tech/api/planets")
+					.then(response => response.json())
+					.then(data => setStore({planets: data.results}))
+					.catch(error => console.log(error));
+
+			},
+			loadPlanetDetail: (id) => {
+				fetch(`https://www.swapi.tech/api/planets/${id}`)
+						.then(response => response.json())
+						.then( data => setStore({planetDetails: data.result}))
+						.catch(error => console.log(error))
 			},
 			addFavorites: (name) =>{
 				const {favorites} = getStore();
-				favorites.push(name)
+				if (!favorites.includes(name)){
+					favorites.push(name)
+				} 
 				setStore({favorites})
 			},
 			deleteFavorites: (name) =>{
@@ -31,8 +48,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 				
 			}
 			
-			}
+			
 		}
 	};
-
+}
 export default getState;
